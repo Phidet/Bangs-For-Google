@@ -12,7 +12,7 @@ chrome.webRequest.onBeforeRequest.addListener(({ url }) => {
   const query = urlObj.searchParams.get('q');
 
   // Check if searching for a bang
-  if (query && query.startsWith('!')) {
+  if (query && query.includes('!')) {
     // Redirect to DuckDuckGo
     return {
       redirectUrl: `https://www.duckduckgo.com/?q=${encodeURIComponent(query)}`,
